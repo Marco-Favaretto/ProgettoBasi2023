@@ -92,7 +92,16 @@ create table Dipendente (
 --Insert values del datbase
 
 
+
 --Query
+
+--1. Verificare disponibilità prodotto da una certa galleria
+--2. Artisti che hanno creato più opere
+--3. Galleria con più opere
+--4. Galleria che spende di più nel salario dipendenti
+--5. Eventi più recenti
+--6. Tipo di opere più presente
+
 
 
 --Indici
