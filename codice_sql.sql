@@ -14,7 +14,6 @@ drop table if exists Dipendente;
 
 create table Galleria (
     Luogo varchar(50) not null,
-    SpazioDisponibile int,
     Nome varchar(50) not null,
     primary key(Luogo)
 );
@@ -90,8 +89,38 @@ create table Dipendente (
 
 
 --Insert values del datbase
+insert into Galleria(Luogo, Nome)
+values (Manhattan, NYGallery);
+values (Bronx, BGallery)
+values (Brooklin, KGallery);
+values (Queens, QGallery);
+values (Staten Island, RGallery)
 
+insert into Sala(Nome, NumeroEspositori, Luogo)
+values (New, 6, Manhattan);
+values (Classic, 3, Manhattan);
+values (Modern, 4, Manhattan);
+values (Contemporary, 8, Manhattan);
+values (New, 5, Bronx);
+values (Classic, 2, Bronx);
+values (Modern, 4, Bronx);
+values (Contemporary, 5, Bronx);
+values (New, 7, Brooklin);
+values (Classic, 5, Brooklin);
+values (Modern, 7, Brooklin);
+values (Contemporary, 4, Brooklin);
+values (New, 2, Queens);
+values (Classic, 3, Queens);
+values (Modern, 3, Queens);
+values (Contemporary, 4, Queens);
+values (New, 8, Staten Island);
+values (Classic, 9, Staten Island);
+values (Modern, 7, Staten Island);
+values (Contemporary, 5, Staten Island)
 
+insert into Artista (NickName, DataNascita, Nome)
+values (Ronst, 1999-12-01, Richard);
+values (Milok, 1978-08-27, Mikael);
 
 --Query
 
