@@ -125,12 +125,23 @@ insert into Artista (NickName, DataNascita, Nome) values
  ("NWY", "1995-04-07", "Soph");
  ("Nalala", "1950-03-13", "Nala");
  ("Maria Ross", "1967-05-22", "Maria");
- ("Linda Wood", "1998-08-11", "Linda")
+ ("Linda Wood", "1998-08-11", "Linda");
+ ("Alisha Lee", "2002-06-17", "Alisha")
 
  insert into Opera(ID, Titolo, Descrizione, Tipo, Luogo, Nome, Autore) values
  ("01", "Finding Paradise", "", "Painting", "Manhattan", "Abstract", "Ronst");
  ('02', 'Within Painting', "A large whimsical vision of Spring celebrating it's return.", 'Painting', 'Manhattan', 'Abstract', "Ronst");
- ("03","Beach Stones", "Watercolor stones painting in shade of blue, indigo, teal, and grey.", "Painting","Manhattan", "Abstract", "Linda Wood")
+ ("03","Beach Stones", "Watercolor stones painting in shade of blue, indigo, teal, and grey.", "Painting","Manhattan", "Abstract", "Linda Wood");
+ ("04","Letting Go","The times I have felt the most peaceful are in lakes, floating on my back with my face to the sun and the silence of water in my ears. To let go, to open my hands and float...these are the moments that I feel the Great Spirit of life holding me up. The thought inscribed there in the paint is my prayer of thanks.", "Painting","Manhattan", "Abstract", "Alisha Lee");
+ ("05", "OK!OK", "","Print", "Manhattan", "Digital", "Milok");
+ ("06", "Boom", "A little crowded", "Print","Manhattan", "Digital", "Milok");
+ ("07", "Sad is not new", "Is ok not to be ok", "Print", "Digital", "Rammon");
+ ("08", "");
+ ("09",);
+ ("10",);
+ ("11",);
+ ("12",);
+ ("13",);
 
 
 --Query
