@@ -19,10 +19,10 @@ create table Galleria (
 );
 
 create table Sala (
-    Nome varchar(20) not null
+    Nome varchar(20) not null,
     NumeroEspositori int not null,
     Luogo varchar(50) not null,
-    foreign key (Luogo) references Galleria(Luogo) on update cascade on delete cascade
+    foreign key (Luogo) references Galleria(Luogo) on update cascade on delete cascade,
     primary key(Nome, Luogo)
 );
 
@@ -41,8 +41,7 @@ create table Opera (
     Luogo varchar(50) not null,
     Nome varchar(20) not null,
     Autore varchar(30) not null,
-    foreign key (Luogo) references Sala(Luogo) on update cascade on delete cascade,
-    foreign key (Nome) references Sala(Nome) on update cascade on delete cascade,
+    foreign key (Luogo, Nome) references Sala(Luogo, Nome) on update cascade on delete cascade,
     foreign key (Autore) references Artista(NickName) on update cascade on delete cascade,
     primary key(ID)
 );
@@ -66,7 +65,7 @@ create table NegozioSouvenir (
 
 create table Prodotto (
     TipoProdotto varchar(50) not null,
-    Disponibilita boolean not null default = false
+    Disponibilita boolean not null,
     primary key (TipoProdotto)
 );
 
@@ -94,7 +93,7 @@ insert into Galleria(Luogo, Nome) values
  ("Bronx", "BGallery")
  ("Brooklin", "KGallery");
  ("Queens", "QGallery");
- ("Staten Island", "RGallery")
+ ("Staten Island", "RGallery");
 
 insert into Sala(Nome, NumeroEspositori, Luogo) values
  ("Abstract", "6", "Manhattan");
@@ -116,7 +115,7 @@ insert into Sala(Nome, NumeroEspositori, Luogo) values
  ("Abstract", "8", "Staten Island");
  ("Digital", "9", "Staten Island");
  ("Modern", "7", "Staten Island");
- ("Contemporary", "5", "Staten Island")
+ ("Contemporary", "5", "Staten Island");
 
 insert into Artista (NickName, DataNascita, Nome) values
  ("Ronst", "1999-12-01", "Richard");
@@ -126,9 +125,9 @@ insert into Artista (NickName, DataNascita, Nome) values
  ("Nalala", "1950-03-13", "Nala");
  ("Maria Ross", "1967-05-22", "Maria");
  ("Linda Wood", "1998-08-11", "Linda");
- ("Alisha Lee", "2002-06-17", "Alisha")
+ ("Alisha Lee", "2002-06-17", "Alisha");
 
- insert into Opera(ID, Titolo, Descrizione, Tipo, Luogo, Nome, Autore) values
+insert into Opera(ID, Titolo, Descrizione, Tipo, Luogo, Nome, Autore) values
  ("01", "Finding Paradise", "", "Painting", "Manhattan", "Abstract", "Ronst");
  ('02', 'Within Painting', "A large whimsical vision of Spring celebrating it's return.", 'Painting', 'Manhattan', 'Abstract', "Ronst");
  ("03","Beach Stones", "Watercolor stones painting in shade of blue, indigo, teal, and grey.", "Painting","Manhattan", "Abstract", "Linda Wood");
@@ -143,7 +142,7 @@ insert into Artista (NickName, DataNascita, Nome) values
  ("12",);
  ("13",);
 
- insert into Evento(ID, Nome, DataInizio, DataFine, Luogo) values
+insert into Evento(ID, Nome, DataInizio, DataFine, Luogo) values
 ("01", "Ronst", "13-06-2020","20-06-2020", "Manhattan");
 ("02", "Milok", "11-07-2021", "18-07-2021","Manhattan");
 ("03", "");
@@ -155,11 +154,60 @@ insert into Artista (NickName, DataNascita, Nome) values
 --Query
 
 --1. Verificare disponibilità prodotto da una certa galleria
---2. Artisti che hanno creato più opere
+--per ora fatto come
+
+--mostra lista prodotti:
+select TipoProdotto
+from Prodotto;
+
+--spostare disponibilità in vende?
+--input esempio con "cartolina"
+select v.luogo 
+from vende v 
+where TipoProdotto = '%s' and disponibilità = 't'
+
+
+--2. Artisti che hanno creato più opere in ordine decrescente
+drop view if exists nopere;
+create view nopere(autore, num) as  --numero opere per autore
+    select art.NickName, count(*)
+    from artista art join opera op on art.NickName = op.Autore
+    group by art.NickName
+    order by num desc;
+select mn.citta as citta, mn.aut as aurore 
+from nopere n join (
+    select g.luogo as Citta, o.autore aut
+    from galleria g join opera o on g.Luogo = o.Luogo
+    group by aut;
+) mn on n.autore = mn.aut
+group by citta;
+
 --3. Galleria con più opere
+select gal.luogo, max(nopere) as num_opere
+from galleria gal join (
+select g.luogo as luogo, count(*) as nopere
+from opere o join galleria g on g.luogo = o.luogo
+group by g.luogo;
+) g1 on gal.luogo = g.luogo;
+
+select g.luogo as luogo, count(*) as nopere
+from opere o join galleria g on g.luogo = o.luogo
+group by g.luogo
+order by nopere desc
+limit 1;
+
 --4. Galleria che spende di più nel salario dipendenti
+
+--4.5 Salario medio per galleria
+select g.Luogo, count(d.CodiceFiscale) as Dipendenti, avg(d.Salario) as Salario_medio 
+from Dipendente d join galleria g on d.galleria = g.luogo
+group by g.luogo;
+
+
 --5. Eventi più recenti
---6. Tipo di opere più presente
+
+
+--6. Tipo di opere più presente per galleria
 
 
 
