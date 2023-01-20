@@ -127,7 +127,7 @@ insert into Artista (NickName, DataNascita, Nome) values
  ("Maria Ross", "1967-05-22", "Maria");
  ("Linda Wood", "1998-08-11", "Linda")
 
- insert into Opera(ID", "Titolo", "Descrizione", "Tipo", "Luogo", "Nome", "Autore) values
+ insert into Opera(ID, Titolo, Descrizione, Tipo, Luogo, Nome, Autore) values
  ("01", "Finding Paradise", "", "Painting", "Manhattan", "Abstract", "Ronst");
  ('02', 'Within Painting', "A large whimsical vision of Spring celebrating it's return.", 'Painting', 'Manhattan', 'Abstract', "Ronst");
  ("03","Beach Stones", "Watercolor stones painting in shade of blue, indigo, teal, and grey.", "Painting","Manhattan", "Abstract", "Linda Wood")
