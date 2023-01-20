@@ -137,7 +137,7 @@ insert into Artista (NickName, DataNascita, Nome) values
  ("06", "Boom", "A little crowded", "Print","Manhattan", "Digital", "Milok");
  ("07", "Sad is not new", "Is ok not to be ok", "Print", "Manhattan", "Digital", "Rammon");
  ("08", "Think", "", "Statue", "Manhattan", "Modern", "Maria Ross");
- ("09", "");
+ ("09", "Lovevol", "", "Painting", "Manhattan", "Modern", "Maria Ross");
  ("10",);
  ("11",);
  ("12",);
@@ -146,7 +146,7 @@ insert into Artista (NickName, DataNascita, Nome) values
  insert into Evento(ID, Nome, DataInizio, DataFine, Luogo) values
 ("01", "Ronst", "13-06-2020","20-06-2020", "Manhattan");
 ("02", "Milok", "11-07-2021", "18-07-2021","Manhattan");
-("03",);
+("03", "");
 ("04",);
 ("05",);
 ("06",);
