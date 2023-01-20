@@ -90,44 +90,48 @@ create table Dipendente (
 
 --Insert values del datbase
 insert into Galleria(Luogo, Nome) values
- (Manhattan, NYGallery);
- (Bronx, BGallery)
- (Brooklin, KGallery);
- (Queens, QGallery);
- (Staten Island, RGallery)
+ ("Manhattan", "NYGallery");
+ ("Bronx", "BGallery")
+ ("Brooklin", "KGallery");
+ ("Queens", "QGallery");
+ ("Staten Island", "RGallery")
 
 insert into Sala(Nome, NumeroEspositori, Luogo) values
- (New, 6, Manhattan);
- (Classic, 3, Manhattan);
- (Modern, 4, Manhattan);
- (Contemporary, 8, Manhattan);
- (New, 5, Bronx);
- (Classic, 2, Bronx);
- (Modern, 4, Bronx);
- (Contemporary, 5, Bronx);
- (New, 7, Brooklin);
- (Classic, 5, Brooklin);
- (Modern, 7, Brooklin);
- (Contemporary, 4, Brooklin);
- (New, 2, Queens);
- (Classic, 3, Queens);
- (Modern, 3, Queens);
- (Contemporary, 4, Queens);
- (New, 8, Staten Island);
- (Classic, 9, Staten Island);
- (Modern, 7, Staten Island);
- (Contemporary, 5, Staten Island)
+ ("Abstract", "6", "Manhattan");
+ ("Digital", "3", "Manhattan");
+ ("Modern", "4", "Manhattan");
+ ("Contemporary", "8", "Manhattan");
+ ("Abstract", "5", "Bronx");
+ ("Digital", "2", "Bronx");
+ ("Modern", "4", "Bronx");
+ ("Contemporary", "5", "Bronx");
+ ("Abstract", "7", "Brooklin");
+ ("Digital", "5", "Brooklin");
+ ("Modern", "7", "Brooklin");
+ ("Contemporary", "4", "Brooklin");
+ ("Abstract", "2", "Queens");
+ ("Digital", "3", "Queens");
+ ("Modern", "3", "Queens");
+ ("Contemporary", "4", "Queens");
+ ("Abstract", "8", "Staten Island");
+ ("Digital", "9", "Staten Island");
+ ("Modern", "7", "Staten Island");
+ ("Contemporary", "5", "Staten Island")
 
 insert into Artista (NickName, DataNascita, Nome) values
- (Ronst, 1999-12-01, Richard);
- (Milok, 1978-08-27, Mikael);
- (Rammon, 2000-07-25, Edward);
- (NWY, 1995-04-07, Soph);
- (Nalala, 1950-03-13, Nala);
- (Maria Ross, 1967-05-22, Maria);
+ ("Ronst", "1999-12-01", "Richard");
+ ("Milok", "1978-08-27", "Mikael");
+ ("Rammon", "2000-07-25", "Edward");
+ ("NWY", "1995-04-07", "Soph");
+ ("Nalala", "1950-03-13", "Nala");
+ ("Maria Ross", "1967-05-22", "Maria");
+ ("Linda Wood", "1998-08-11", "Linda")
 
- insert into Opera(ID, Titolo, Descrizione, Tipo, Luogo, Nome, Autore) values
- (01, Le Nuit, )
+ insert into Opera(ID", "Titolo", "Descrizione", "Tipo", "Luogo", "Nome", "Autore) values
+ ("01", "Finding Paradise", "", "Painting", "Manhattan", "Abstract", "Ronst");
+ ('02', 'Within Painting', "A large whimsical vision of Spring celebrating it's return.", 'Painting', 'Manhattan', 'Abstract', "Ronst");
+ ("03","Beach Stones", "Watercolor stones painting in shade of blue, indigo, teal, and grey.", "Painting","Manhattan", "Abstract", "Linda Wood")
+
 
 --Query
 
