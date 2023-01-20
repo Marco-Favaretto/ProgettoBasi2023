@@ -135,13 +135,21 @@ insert into Artista (NickName, DataNascita, Nome) values
  ("04","Letting Go","The times I have felt the most peaceful are in lakes, floating on my back with my face to the sun and the silence of water in my ears. To let go, to open my hands and float...these are the moments that I feel the Great Spirit of life holding me up. The thought inscribed there in the paint is my prayer of thanks.", "Painting","Manhattan", "Abstract", "Alisha Lee");
  ("05", "OK!OK", "","Print", "Manhattan", "Digital", "Milok");
  ("06", "Boom", "A little crowded", "Print","Manhattan", "Digital", "Milok");
- ("07", "Sad is not new", "Is ok not to be ok", "Print", "Digital", "Rammon");
- ("08", "");
- ("09",);
+ ("07", "Sad is not new", "Is ok not to be ok", "Print", "Manhattan", "Digital", "Rammon");
+ ("08", "Think", "", "Statue", "Manhattan", "Modern", "Maria Ross");
+ ("09", "");
  ("10",);
  ("11",);
  ("12",);
  ("13",);
+
+ insert into Evento(ID, Nome, DataInizio, DataFine, Luogo) values
+("01", "Ronst", "13-06-2020","20-06-2020", "Manhattan");
+("02", "Milok", "11-07-2021", "18-07-2021","Manhattan");
+("03",);
+("04",);
+("05",);
+("06",);
 
 
 --Query
