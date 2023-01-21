@@ -65,13 +65,13 @@ create table NegozioSouvenir (
 
 create table Prodotto (
     TipoProdotto varchar(50) not null,
-    Disponibilita boolean not null,
     primary key (TipoProdotto)
 );
 
 create table Vende (
     Luogo varchar(50) not null,
     TipoProdotto varchar(50) not null,
+    Disponibilita boolean not null,
     foreign key (Luogo) references NegozioSouvenir(Luogo) on update cascade on delete cascade,
     foreign key (TipoProdotto) references Prodotto(TipoProdotto) on update cascade on delete cascade,
     primary key (Luogo, TipoProdotto)
@@ -160,9 +160,9 @@ select TipoProdotto
 from Prodotto;
 --spostare disponibilità in vende?
 --input esempio con "cartolina"
-select v.luogo 
-from vende v join Prodotto p on p.TipoProdotto = v.TipoProdotto
-where v.TipoProdotto = '%s' and p.disponibilità = 't'
+select luogo 
+from vende v
+where TipoProdotto = '%s' and disponibilità = 't'
 
 
 --2. Artisti che hanno creato più opere in ordine decrescente
