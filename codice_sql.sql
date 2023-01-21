@@ -197,9 +197,12 @@ order by nopere desc
 limit 1;
 
 --4. Galleria che spende di più nel salario dipendenti
+select g.Luogo, count(d.CodiceFiscale) as Dipendenti, sum(d.Salario) as SpeseSalario
+from Dipendente d join galleria g on d.galleria = g.luogo
+group by g.luogo;
 
 --4.5 Salario medio per galleria
-select g.Luogo, count(d.CodiceFiscale) as Dipendenti, avg(d.Salario) as Salario_medio 
+select g.Luogo, count(d.CodiceFiscale) as nDipendenti, avg(d.Salario) as Salario_medio 
 from Dipendente d join galleria g on d.galleria = g.luogo
 group by g.luogo;
 
