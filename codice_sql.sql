@@ -218,3 +218,4 @@ having num > 3;
 
 --Indici
 
+create index '#' on '#';

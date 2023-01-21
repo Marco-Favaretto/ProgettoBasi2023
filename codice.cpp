@@ -14,7 +14,7 @@ using std::endl;
 #define PG_PORT 5432
 #define PG_USER "postgres"
 #define PG_HOST "127.0.0.1"
-#define PG_DB "Progetto"
+#define PG_DB ""
 
 //chiede di ripetere eventuale ciclo di funzioni con relativo controllo sull'input
 int ripeti();
