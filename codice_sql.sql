@@ -154,17 +154,15 @@ insert into Evento(ID, Nome, DataInizio, DataFine, Luogo) values
 --Query
 
 --1. Verificare disponibilità prodotto da una certa galleria
---per ora fatto come
 
---mostra lista prodotti:
+--mostra lista prodotti per scelta utente:
 select TipoProdotto
 from Prodotto;
-
 --spostare disponibilità in vende?
 --input esempio con "cartolina"
 select v.luogo 
-from vende v 
-where TipoProdotto = '%s' and disponibilità = 't'
+from vende v join Prodotto p on p.TipoProdotto = v.TipoProdotto
+where v.TipoProdotto = '%s' and p.disponibilità = 't'
 
 
 --2. Artisti che hanno creato più opere in ordine decrescente
@@ -189,7 +187,7 @@ select g.luogo as luogo, count(*) as nopere
 from opere o join galleria g on g.luogo = o.luogo
 group by g.luogo;
 ) g1 on gal.luogo = g.luogo;
-
+--stessa query, ma altro modo, penso
 select g.luogo as luogo, count(*) as nopere
 from opere o join galleria g on g.luogo = o.luogo
 group by g.luogo
@@ -200,18 +198,22 @@ limit 1;
 select g.Luogo, count(d.CodiceFiscale) as Dipendenti, sum(d.Salario) as SpeseSalario
 from Dipendente d join galleria g on d.galleria = g.luogo
 group by g.luogo;
-
 --4.5 Salario medio per galleria
 select g.Luogo, count(d.CodiceFiscale) as nDipendenti, avg(d.Salario) as Salario_medio 
 from Dipendente d join galleria g on d.galleria = g.luogo
 group by g.luogo;
 
 
---5. Eventi più recenti
+--5. Eventi più recenti o eventi in corso (facendo inserire la data all'utente?)
+select Luogo, Nome
+from Evento e
+where '%s' between Data_inizio and Data_fine;
 
-
---6. Tipo di opere più presente per galleria
-
+--6. Galleria avente almeno tre opere di un determinato tipo
+select o.Luogo, o.tipo, count(*) num 
+from opera o
+group by o.tipo
+having num > 3;
 
 
 --Indici
