@@ -228,9 +228,6 @@ insert into Opera(ID, Titolo, Descrizione, Tipo, Luogo, Nome, Autore) values
 ('55','Warrior','Is he fighting or crying?','Painting','Cina','Abstract','Aggi');
 ('56','Pagoda','','Sculpture','Cina','Classic','Wren');
 ('57','Buddah','','Sculpture','Cina','Classic','Wren');
-('58','','','','','','');
-('59','','','','','','');
-('60','','','','','','');
 
 insert into Dipendente (NomeCognome, Mail, Salario, Mansione, Galleria) values
 (' MariaStanfield ',' Maria.Stanfield@gmail.com ', 6000 , 'Direttore' , 'Italia' ),
