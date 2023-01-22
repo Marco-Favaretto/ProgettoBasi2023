@@ -98,11 +98,10 @@ create table Dipendente (
 --mostra lista prodotti per scelta utente:
 select TipoProdotto
 from Prodotto;
---spostare disponibilità in vende?
---input esempio con "cartolina"
+--input esempio con 'cartolina'
 select luogo 
 from vende v
-where TipoProdotto = '%s' and disponibilità = 't'
+where TipoProdotto = '%s' and disponibilità = TRUE
 
 
 --2. Artisti che hanno creato più opere in ordine decrescente
@@ -122,25 +121,14 @@ group by citta;
 
 
 --3. Galleria con più opere
-select gal.luogo, max(nopere) as num_opere
-from galleria gal join (
 select g.luogo as luogo, count(*) as nopere
-from opere o join galleria g on g.luogo = o.luogo
-group by g.luogo;
-) g1 on gal.luogo = g.luogo;
---stessa query, ma altro modo, penso
-select g.luogo as luogo, count(*) as nopere
-from opere o join galleria g on g.luogo = o.luogo
+from opera o join galleria g on g.luogo = o.luogo
 group by g.luogo
 order by nopere desc
 limit 1;
 
 --4. Galleria che spende di più nel salario dipendenti
-select g.Luogo, count(d.Mail) as Dipendenti, sum(d.Salario) as SpeseSalario
-from Dipendente d join galleria g on d.galleria = g.luogo
-group by g.luogo;
---4.5 Salario medio per galleria
-select g.Luogo, count(d.Mail) as nDipendenti, avg(d.Salario) as Salario_medio 
+select g.Luogo, count(d.Mail) as Dipendenti, avg(d.Salario)::numeric(10,2) as Salario_medio, sum(d.Salario) as SpeseSalario
 from Dipendente d join galleria g on d.galleria = g.luogo
 group by g.luogo;
 
@@ -148,17 +136,15 @@ group by g.luogo;
 --5. Eventi in corso (facendo inserire la data all'utente?)
 select Luogo, Nome
 from Evento e
-where '%s' between Data_inizio and Data_fine;
+where '%s' between Datainizio and Datafine;
 
 
 --6. Galleria avente almeno tre opere di un determinato tipo
 select o.Luogo, o.tipo, count(*) num 
 from opera o
-group by o.tipo
-having num > 3;
+group by o.luogo, o.tipo
+having count(*) > 3;
 
-
---possibile altra query: disponibilità gallerie?
 
 --Indici
 
