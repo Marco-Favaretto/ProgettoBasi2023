@@ -118,8 +118,8 @@ insert into Sala(Nome, NumeroEspositori, Luogo) values
 ("Classic", "3", "Cina");
 ("Feudal", "3", "Giappone");
 ("Anime", "4", "Giappone");
-("Abstract", "8", "SudAfrica");
-("Digital", "9", "SudAfrica");
+("StreetArt", "3", "SudAfrica");
+("Digital", "7", "SudAfrica");
 ("Modern", "7", "Brasile");
 ("Contemporary", "5", "Brasile");
 
@@ -228,9 +228,26 @@ insert into Opera(ID, Titolo, Descrizione, Tipo, Luogo, Nome, Autore) values
 ('55','Warrior','Is he fighting or crying?','Painting','Cina','Abstract','Aggi');
 ('56','Pagoda','','Sculpture','Cina','Classic','Wren');
 ('57','Buddah','','Sculpture','Cina','Classic','Wren');
-('58','','','','','','');
-('59','','','','','','');
-('60','','','','','','');
+('58','Samurai','Loyality and Honor','Painting','Giappone','Feudal','Falkner');
+('59','Waiting','','Painting','Giappone','Feudal','Falkner');
+('60','AOD','','Animation','Giappone','Anime','Verine');
+('61','SSO','','Animation','Giappone','Anime','Lilian');
+('62','MMO','','Animation','Giappone','Anime','Verine');
+('63','FER','','Animation','Giappone','Anime','Bayard');
+('64','Crazy','','Murales','SudAfrica','StreetArt','Suellen');
+('65','Happy','','Murales','SudAfrica','StreetArt','Suellen');
+('66','Melody','Feel the rithm in music','Murales','SudAfrica','StreetArt','Judon');
+('67','Rampa','','Print','SudAfrica','Digital','Wynnie');
+('68','CreationVSCreator1','','Animation','SudAfrica','Digital','Charles');
+('69','CreationVSCreator2','','Animation','SudAfrica','Digital','Charles');
+('70','CreationVSCreator3','','Animation','SudAfrica','Digital','Charles');
+('71','Lukas','','Print','SudAfrica','Digital','Wynnie');
+('72','Wine','','Sculpture','Brasile','Modern','Verge');
+('73','Bread','','Sculpture','Brasile','Modern','Verge');
+('74','Fish','','Sculpture','Brasile','Modern','Verge');
+('75','Hola','','Painting','Brasile','Contemporary','Sumner');
+('76','Amigos','','Painting','Brasile','Contemporary','Barr');
+('77','Mira','','Painting','Brasile','Contemporary','Sadye');
 
 
 
