@@ -14,7 +14,7 @@ using std::endl;
 #define PG_PORT 5432
 #define PG_USER "postgres"
 #define PG_HOST "127.0.0.1"
-#define PG_DB "b4si"
+#define PG_DB ""
 
 //chiede di ripetere eventuale ciclo di funzioni con relativo controllo sull'input
 int ripeti();
@@ -250,8 +250,7 @@ int exeQ(PGconn* tmpconn, char* tmp_query) {
         cout << endl;
     }
     print_ln(len, fields);
-
+    
     PQclear(res); //chiusura dell'esecuzione della query
-
     return tuple; //return per verificare che ci sia stato output
 }
