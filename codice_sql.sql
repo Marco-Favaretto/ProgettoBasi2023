@@ -103,9 +103,17 @@ select luogo
 from vende v
 where TipoProdotto = '%s' and disponibilità = TRUE
 
+--2. Artisti che hanno creato più opere in ordine decrescente per galleria
+drop view if exists nopart;
+create view nopart(luogo, autore, num) as --numero opere per autore in ciascuna galleria
+	select a.luogo, a.autore, count(*) as num
+	from opera a
+	group by a.autore, a.luogo
+	order by a.luogo;
 
---2. Artisti che hanno creato più opere in ordine decrescente
-
+select g.luogo, max(n.num)
+from nopart n join galleria g on g.luogo = n.luogo
+group by g.luogo;
 
 
 --3. Galleria con più opere
@@ -115,24 +123,21 @@ group by g.luogo
 order by nopere desc
 limit 1;
 
---4. Galleria che spende di più nel salario dipendenti
+--4. Galleria che spende di più nel salario dipendenti + salario medio
 select g.Luogo, count(d.Mail) as Dipendenti, avg(d.Salario)::numeric(10,2) as Salario_medio, sum(d.Salario) as SpeseSalario
 from Dipendente d join galleria g on d.galleria = g.luogo
 group by g.luogo;
-
 
 --5. Eventi in corso (facendo inserire la data all'utente?)
 select Luogo, Nome
 from Evento e
 where '%s' between Datainizio and Datafine;
 
-
 --6. Galleria avente almeno tre opere di un determinato tipo
-select o.Luogo, o.tipo, count(*) num 
-from opera o
-group by o.luogo, o.tipo
+select g.Luogo, o.tipo, count(*) num 
+from opera o join galleria g on g.luogo = o.luogo
+group by g.luogo, o.tipo
 having count(*) > 3;
-
 
 --Indici
 
