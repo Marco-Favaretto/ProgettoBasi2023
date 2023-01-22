@@ -17,11 +17,15 @@ using std::endl;
 #define PG_HOST "127.0.0.1"
 #define PG_DB "Progetto"
 
+/*
+    Definizione funzioni
+*/
+
 //chiede di ripetere eventuale ciclo di funzioni con relativo controllo sull'input
 int ripeti();
 
 //stampa menu delle query
-void menu(int*);
+int menu();
 
 //controlla che la query sia eseguita correttamente
 void checkResults(PGresult*, const PGconn*);
@@ -34,6 +38,10 @@ void pad_field(char*, int);
 
 //Esegue e stampa la Query
 int exeQ(PGconn*, char*);
+
+/*
+    MAIN
+*/
 
 int main() {
     cout << "inserire la password: ";
@@ -48,7 +56,7 @@ int main() {
         exit(1);
     } else {
         cout << "Connessione avvenuta correttamente" << endl;
-        int menu_value;       //valore che specifica azione del menu
+        int menu_value = 0;   //valore che specifica azione del menu
         int prog_r = 0;       //valore che specifica se ripetere un ciclo di esecuzione query
         //query, marcato const poiché in sola lettura
         const char* query[6] = {
@@ -95,17 +103,17 @@ int main() {
         //ciclo esecuzione query
         do {
             //menu
-            menu(&menu_value);
-            //cout << menu_value << endl;
-            const char* tmp_q2[2] = {
-                    "select TipoProdotto, Prezzo \
-                        from Prodotto", 
-                    "select TipoProdotto \
-                        from Prodotto \
-                        where TipoProdotto = '%s'"
-                };
+            menu_value = menu();
+            prog_r = 0;
             //se utente non inserisce 0, esegui query, altrimenti quit diretto
-            if(menu_value){
+            if(menu_value) {
+                const char* tmp_q2[2] = {
+                "select TipoProdotto, Prezzo \
+                    from Prodotto", 
+                "select TipoProdotto \
+                    from Prodotto \
+                    where TipoProdotto = '%s'"
+                };
                 char prodotto[50];
                 char querytmp[600], q2_tmp[50]; //salva la query corrente da eseguire
                 char data[13];
@@ -118,7 +126,7 @@ int main() {
                         int ok;
                         do {
                             char q2_tmp2[200];
-                            cout << "Specificare quale Prodotto visualizzare: ";  //richiesta piatto
+                            cout << "Specificare quale prodotto visualizzare: ";  //richiesta piatto
                             cin >> prodotto;
                             sprintf(q2_tmp2, tmp_q2[1], prodotto);
                             cout << "Hai selezionato:" << endl; 
@@ -142,9 +150,8 @@ int main() {
                         break;
                     case 5:
                         //inserimento data:
-                        cout << "Inserimento data (yyyy-mm-dd): ";
+                        cout << "Inserire data (yyyy-mm-dd): ";
                         cin >> data;
-                        //
                         sprintf(querytmp, query[4], data);
                         exeQ(conn, querytmp);
                         break;
@@ -155,7 +162,8 @@ int main() {
                     default:
                         break;
                 }
-                cout << "Visualizzare una nuova query? [y or n]: ";    //ripetere l'esecuzione del programma
+                menu_value = 0;
+                cout << endl << "Visualizzare una nuova query? [y or n]: ";    //ripetere l'esecuzione del programma
                 prog_r = ripeti();
             }
         } while(prog_r);
@@ -164,20 +172,24 @@ int main() {
     return 0;
 }
 
+/*
+    Corpo funzioni
+*/
+
 int ripeti() {
-    char c;
+    std::string c;
     cin >> c;
-    while(c != 'y' && c != 'n'){
+    while(c != "y" && c != "n"){
         cout << "[y or n]: ";
         cin >> c;
     }
-    if(c == 'y') return 1;
+    if(c == "y") return 1;
     else return 0;
 }
 
-void menu(int *menu_v) {
-    *menu_v = -1;
-    while(*menu_v < 0 || *menu_v > 6) {
+int menu() {
+    int menu = -1;
+    while(menu < 0 || menu > 6) {
         cout << "Selezionare una delle seguenti query da eseguire: \n";
             cout << "\t1. Scegliere un prodotto e visualizzare i negozi nei quali e' disponibile\n";
             cout << "\t2. Visualizzare gli artisti che hanno creato piu' opere per galleria\n";
@@ -186,13 +198,14 @@ void menu(int *menu_v) {
             cout << "\t4. Salario medio e spesa complessiva per galleria\n";
             cout << "\t5. Inserendo una data, vengono visualizzati gli eventi sono in corso\n";
             cout << "\t6. Galleria avente almeno 3 opere dello stesso tipo\n";
-        cout << "\tPremere 0 per chiudere il programma." << endl;
-        cout << "Inserire un numero compreso tra 0 e 6: ";
-        cin >> *menu_v;
-        if(*menu_v < 0 || *menu_v > 6) {
+        cout << "\tPremere 0 per chiudere il programma.\n";
+        cout << endl << "Inserire un numero compreso tra 0 e 6: ";
+        cin >> menu;
+        if(menu < 0 || menu > 6) {
             cout << "Il valore inserito deve essere compreso tra 0 e 6." << endl;
         }
     } //POST: menu_value valore compreso in [0, 6]
+    return menu;
 }
 
 void checkResults(PGresult* res , const PGconn* conn) {
