@@ -105,19 +105,7 @@ where TipoProdotto = '%s' and disponibilità = TRUE
 
 
 --2. Artisti che hanno creato più opere in ordine decrescente
-drop view if exists nopere;
-create view nopere(autore, num) as  --numero opere per autore
-    select art.NickName, count(*)
-    from artista art join opera op on art.NickName = op.Autore
-    group by art.NickName
-    order by num desc;
-select mn.citta as citta, mn.aut as aurore 
-from nopere n join (
-    select g.luogo as Citta, o.autore aut
-    from galleria g join opera o on g.Luogo = o.Luogo
-    group by aut;
-) mn on n.autore = mn.aut
-group by citta;
+
 
 
 --3. Galleria con più opere
