@@ -488,7 +488,7 @@ insert into Vende(Luogo, TipoProdotto, Disponibilita) values
 --mostra lista prodotti per scelta utente:
 select p.TipoProdotto, p.Prezzo
 from Prodotto p;
---input esempio con 'cartolina'
+--query
 select v.luogo
 from vende v
 where v.TipoProdotto = '%s' and v.disponibilita = TRUE;
