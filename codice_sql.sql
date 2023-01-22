@@ -491,7 +491,7 @@ from Prodotto;
 --input esempio con 'cartolina'
 select luogo 
 from vende v
-where TipoProdotto = '%s' and disponibilità = 't'
+where TipoProdotto = '%s' and disponibilità = TRUE;
 
 
 --2. Artisti che hanno creato più opere in ordine decrescente
