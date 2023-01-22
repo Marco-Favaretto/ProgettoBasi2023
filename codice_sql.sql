@@ -102,26 +102,26 @@ insert into Galleria(Luogo, Nome) values
 ('Brasile','BRMusesum');
 
 insert into Sala(Nome, NumeroEspositori, Luogo) values
-("Abstract", "6", "Manhattan");
-("Digital", "3", "Manhattan");
-("Modern", "4", "Manhattan");
-("Contemporary", "8", "Manhattan");
-("Abstract", "5", "Bronx");
-("Digital", "2", "Bronx");
-("Modern", "4", "Bronx");
-("Contemporary", "5", "Bronx");
-("Abstract", "7", "Brooklin");
-("Digital", "5", "Brooklin");
-("Modern", "7", "Brooklin");
-("Contemporary", "4", "Brooklin");
-("Abstract", "2", "Queens");
-("Digital", "3", "Queens");
-("Modern", "3", "Queens");
-("Contemporary", "4", "Queens");
-("Abstract", "8", "Staten Island");
-("Digital", "9", "Staten Island");
-("Modern", "7", "Staten Island");
-("Contemporary", "5", "Staten Island");
+("Classic", "6", "Italia");
+("Renaissance", "3", "Italia");
+("Gotic", "8", "Francia");
+("Contemporary", "4", "Francia");
+("Abstract", "5", "Germania");
+("Digital", "2", "Germania");
+("Modern", "4", "RegnoUnito");
+("Contemporary", "5", "RegnoUnito");
+("Human", "7", "USA");
+("Digital", "5", "USA");
+("Modern", "7", "Canada");
+("Contemporary", "4", "Canada");
+("Abstract", "2", "Cina");
+("Classic", "3", "Cina");
+("Feudal", "3", "Giappone");
+("Anime", "4", "Giappone");
+("Abstract", "8", "SudAfrica");
+("Digital", "9", "SudAfrica");
+("Modern", "7", "Brasile");
+("Contemporary", "5", "Brasile");
 
 insert into Artista (NickName, DataNascita, Nome) values
 ('Shun', '1948-11-08', 'Shauna Caulliere'),
@@ -171,19 +171,69 @@ insert into Artista (NickName, DataNascita, Nome) values
 ('Yelena', '1806-07-16', 'YelenaRudolf');
 
 insert into Opera(ID, Titolo, Descrizione, Tipo, Luogo, Nome, Autore) values
-("01", "Finding Paradise", "", "Painting", "Manhattan", "Abstract", "Ronst");
-('02', 'Within Painting', "A large whimsical vision of Spring celebrating it's return.", 'Painting', 'Manhattan', 'Abstract', "Ronst");
-("03","Beach Stones", "Watercolor stones painting in shade of blue, indigo, teal, and grey.", "Painting","Manhattan", "Abstract", "Linda Wood");
-("04","Letting Go","The times I have felt the most peaceful are in lakes, floating on my back with my face to the sun and the silence of water in my ears. To let go, to open my hands and float...these are the moments that I feel the Great Spirit of life holding me up. The thought inscribed there in the paint is my prayer of thanks.", "Painting","Manhattan", "Abstract", "Alisha Lee");
-("05", "OK!OK", "","Print", "Manhattan", "Digital", "Milok");
-("06", "Boom", "A little crowded", "Print","Manhattan", "Digital", "Milok");
-("07", "Sad is not new", "Is ok not to be ok", "Print", "Manhattan", "Digital", "Rammon");
-("08", "Think", "", "Statue", "Manhattan", "Modern", "Maria Ross");
-("09", "Lovevol", "", "Painting", "Manhattan", "Modern", "Maria Ross");
-("10",);
-("11",);
-("12",);
-("13",);
+('01','Il giocatore','','Sculpture','Italia','Classic','Cara');
+('02','Giostra','','Architecture','Italia','Classic','Cara');
+('03','Pensiero','','Sculpture','Italia','Classic','Tami');
+('04','Movimento','','Sculpture','Italia','Classic','Tami');
+('05','Porticato','','Architecture','Italia','Classic','Noella');
+('06','Fontana','','Architecture','Italia','Classic','Noella');
+('07','Le 3 dame','Tre donne che si muovono sinuose','Painting','Italia','Renaissance','Yelena');
+('08','Le 4 dame','Quattro donzelle che ballano','Painting','Italia','Renaissance','Yelena');
+('09','Le 5 dame','Cinque dame che pensano','Painting','Italia','Renaissance','Yelena');
+('10','Notre Dame de Lyon','','Architecture','Francia','Gotic','Audrey');
+('11','Notre Dame de Paris','','Architecture','Francia','Gotic','Audrey');
+('12','Sacre Coeur','','Architecture','Francia','Gotic','Cherise');
+('13','Saint Bartolomie','','Architecture','Francia','Gotic','Cherise');
+('14','Fourier','','Architecture','Francia','Gotic','Audrey');
+('15','Fayettes','','Architecture','Francia','Gotic','Cherise');
+('16','Epicerie','','Architecture','Francia','Gotic','Nichole');
+('17','Ecrir','','Architecture','Francia','Gotic','Nichole');
+('18','Finding Paradise','','Painting','Francia','Contemporary','Zollie');
+('19','Within Painting',"A large whimsical vision of Spring celebrating it's return.",'Painting','Francia','Contemporary','Zollie');
+('20','Beach Stones','Watercolor stones painting in shade of blue, indigo, teal, and grey.','','Francia','Contemporary','Zollie');
+('21','Letting Go','The times I have felt the most peaceful are in lakes, floating on my back with my face to the sun and the silence of water in my ears.','Painting','Francia','Contemporary','Marsh');
+('22','Twei','Heute möchte ich von meinem besten Freund erzählen. Zunächst zu seinem Äußeren.','Painting','Germania','Abstract','Ryann');
+('23','Zund','Er ist sehr groß und ragt mit seinen 1,94 Meter Körpergröße aus fast jeder Menschengruppe heraus.','Painting','Germania','Abstract','Ryann');
+('24','Wander','Seine Arme und Beine sind zwar lang, aber kräftig, da er sehr gerne Sport treibt.','Painting','Germania','Abstract','FraZ');
+('25','Krunken','Mein Freund ist Basketballer.','Painting','Germania','Abstract','FraZ');
+('26','Apoteque','','Painting','Germania','Abstract','FraZ');
+('27','Life','','Print','Germania','Digital','Shirline');
+('28','idfc','','Print','Germania','Digital','Shirline');
+('29','lol','','Painting','RegnoUnito','Modern','Ryann');
+('30','YOLO','you obly live once','Painting','RegnoUnito','Modern','Ryann');
+('31','God save the queen','Please, we are begging','Painting','RegnoUnito','Modern','Aymer');
+('32','rofl','','Sculpture','RegnoUnito','Contemporary','Huntlee');
+('33','B E A U T Y',':O','Sculpture','RegnoUnito','Contemporary','Huntlee');
+('34','Boom','','Painting','RegnoUnito','Contemporary','Huntlee');
+('35','Basmati','','Painting','RegnoUnito','Contemporary','Huntlee');
+('36','Nature','The beauty of nature passing through me.','Performance','USA','Human','Huntlee');
+('37','Fight','','Performance','USA','Human','Sadye');
+('38','War','','Performance','USA','Human','Sadye');
+('39','Hope','first','Performance','USA','Human','Sadye');
+('40','Less','second','Performance','USA','Human','Sadye');
+('41','Rage','','Performance','USA','Human','Sadye');
+('42','Scream','','Performance','USA','Human','Sadye');
+('43','Group','These groupings are defined by the perception that the artworks within them share a single quality.','NFT','USA','Digital','Cherise');
+('44','Be free','Afternoon Aspen Grove','Image','USA','Digital','Cherise');
+('45','bff','','Print','USA','Digital','Shirline');
+('46','gf or bf','','Print','USA','Digital','Shirline');
+('47','Rare','Still young','Painting','Canada','Modern','Aggi');
+('48','Steak','Good in every occasion','Painting','Canada','Modern','Aggi');
+('49','Medium','Walking at your pace','Painting','Canada','Modern','Aggi');
+('50','Jogging','','Sculpture','Canada','Modern','Nikki');
+('51','Jumper','','Sculpture','Canada','Modern','Nikki');
+('52','Winston','','Sculpture','Canada','Contemporary','Berti');
+('53','Cave','','Architecture','Canada','Contemporary','Berti');
+('54','SkyLiner','','Architecture','Canada','Contemporary','Berti');
+('55','Warrior','Is he fighting or crying?','Painting','Cina','Abstract','Aggi');
+('56','Pagoda','','Sculpture','Cina','Classic','Wren');
+('57','Buddah','','Sculpture','Cina','Classic','Wren');
+('58','','','','','','');
+('59','','','','','','');
+('60','','','','','','');
+
+
+
 
 insert into Dipendente (NomeCognome, Mail, Salario, Mansione, Galleria) values
 (' MariaStanfield ',' Maria.Stanfield@gmail.com ', 6000 , 'Direttore' , 'Italia' ),
