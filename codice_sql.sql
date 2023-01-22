@@ -65,6 +65,7 @@ create table NegozioSouvenir (
 
 create table Prodotto (
     TipoProdotto varchar(50) not null,
+    Prezzo int not null,
     primary key (TipoProdotto)
 );
 
