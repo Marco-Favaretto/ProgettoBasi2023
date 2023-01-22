@@ -14,7 +14,7 @@ using std::endl;
 #define PG_PORT 5432
 #define PG_USER "postgres"
 #define PG_HOST "127.0.0.1"
-#define PG_DB ""
+#define PG_DB "b4si"
 
 //chiede di ripetere eventuale ciclo di funzioni con relativo controllo sull'input
 int ripeti();
@@ -52,17 +52,38 @@ int main() {
         //query, marcato const poiché in sola lettura
         const char* query[6] = {
             //Query 1
-            "",
+            "select luogo \
+            from vende v \
+            where TipoProdotto = '%s' and disponibilità = TRUE;",
             //Query 2
-            "",
+            "drop view if exists nopart; \
+            create view nopart(luogo, autore, num) as \
+                select a.luogo, a.autore, count(*) as num \
+                from opera a \
+                group by a.autore, a.luogo \
+                order by a.luogo; \
+            select g.luogo, max(n.num) \
+            from nopart n join galleria g on g.luogo = n.luogo \
+            group by g.luogo;",
             //Query 3
-            "",
+            "select g.luogo as luogo, count(*) as nopere \
+            from opere o join galleria g on g.luogo = o.luogo \
+            group by g.luogo \
+            order by nopere desc \
+            limit 1;",
             //Query 4
-            "",
+            "select g.Luogo, count(d.Mail) as Dipendenti, avg(d.Salario)::numeric(10,2) as Salario_medio, sum(d.Salario) as SpeseSalario \
+            from Dipendente d join galleria g on d.galleria = g.luogo \
+            group by g.luogo;",
             //Query 5
-            "",
+            "select Luogo, Nome \
+            from Evento e \
+            where '%s' between Datainizio and Datafine;",
             //Query 6
-            ""
+            "select g.Luogo, o.tipo, count(*) num \
+            from opera o join galleria g on g.luogo = o.luogo \
+            group by g.luogo, o.tipo \
+            having count(*) > 3;"
         };
         
         //ciclo esecuzione query
@@ -70,18 +91,37 @@ int main() {
             //menu
             menu(&menu_value);
             //cout << menu_value << endl;
+            const char* tmp_q2[2] = {
+                    "select TipoProdotto, Prezzo \
+                        from Prodotto", 
+                    "select TipoProdotto \
+                        from Prodotto \
+                        where TipoProdotto = '%s'"
+                };
             //se utente non inserisce 0, esegui query, altrimenti quit diretto
             if(menu_value){
+                char prodotto[50];
                 char querytmp[800], q2_tmp[50]; //salva la query corrente da eseguire
                 //switch case per esecuzione delle query
                 switch(menu_value) {
                     case 1:
-                        sprintf(querytmp, query[0]);
+                        cout << "Scegliere uno dei seguenti prodotti:";
+                        sprintf(q2_tmp, tmp_q2[0]);
+                        exeQ(conn, q2_tmp);
+                        int ok;
+                        do {
+                            char q2_tmp2[200];
+                            cout << "Specificare quale Prodotto visualizzare: ";  //richiesta piatto
+                            cin >> prodotto;
+                            sprintf(q2_tmp2, tmp_q2[1], prodotto);
+                            cout << "Hai selezionato:" << endl; 
+                            ok = exeQ(conn, q2_tmp2);          // test per valutare se il prodotto inserito è effettivamente nella tabella
+                        } while(!ok);
+                        sprintf(querytmp, query[0], prodotto);
                         exeQ(conn, querytmp);
                         break;
                     case 2:
                         sprintf(q2_tmp, query[1]);
-                        exeQ(conn, querytmp);
                         break;
                     case 3:
                         sprintf(querytmp, query[2]);
@@ -126,12 +166,12 @@ void menu(int *menu_v) {
     *menu_v = -1;
     while(*menu_v < 0 || *menu_v > 6) {
         cout << "Selezionare una delle seguenti query da eseguire: \n";
-            cout << "\t1. \n";
-            cout << "\t2. \n";
-            cout << "\t3. \n";
-            cout << "\t4. \n";
-            cout << "\t5. \n";
-            cout << "\t6. \n";
+            cout << "\t1. Scegliere un prodotto e visualizzare i negozi nei quali è disponibile\n";
+            cout << "\t2. Visualizzare gli artisti che hanno creato più opere per galleria\n";
+            cout << "\t3. Galleria con maggior numero di opere\n";
+            cout << "\t4. Salario medio e spesa complessiva per galleria\n";
+            cout << "\t5. Inserendo una data, visualizzare quali eventi sono in corso\n";
+            cout << "\t6. Galleria avente almeno 3 opere dello stesso tipo\n";
         cout << "\tPremere 0 per chiudere il programma." << endl;
         cout << "Inserire un numero compreso tra 0 e 6: ";
         cin >> *menu_v;
