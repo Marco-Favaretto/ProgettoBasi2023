@@ -108,7 +108,7 @@ int main() {
             if(menu_value){
                 char prodotto[50];
                 char querytmp[600], q2_tmp[50]; //salva la query corrente da eseguire
-                std::string s, data[3];
+                char data[13];
                 //switch case per esecuzione delle query
                 switch(menu_value) {
                     case 1:
@@ -124,6 +124,7 @@ int main() {
                             cout << "Hai selezionato:" << endl; 
                             ok = exeQ(conn, q2_tmp2);          // test per valutare se il prodotto inserito è effettivamente nella tabella
                         } while(!ok);
+                        cout << prodotto << " e' presente in:" << endl;
                         sprintf(querytmp, query[0], prodotto);
                         exeQ(conn, querytmp);
                         break;
@@ -141,15 +142,10 @@ int main() {
                         break;
                     case 5:
                         //inserimento data:
-                        cout << "Inserimento data\n - Inserire anno: ";
-                        cin >> data[0];
-                        cout << "- Inserire mese: ";
-                        cin >> data[1];
-                        cout << "- Inserire giorno: ";
-                        cin >> data[2];
-                        s = data[0] + "-" + data[1] + "-" + data[2];
+                        cout << "Inserimento data (yyyy-mm-dd): ";
+                        cin >> data;
                         //
-                        sprintf(querytmp, query[4], s);
+                        sprintf(querytmp, query[4], data);
                         exeQ(conn, querytmp);
                         break;
                     case 6:
