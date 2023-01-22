@@ -486,10 +486,10 @@ insert into Vende(Luogo, TipoProdotto, Disponibilita) values
 
 --1. Verificare disponibilità prodotto da una certa galleria
 --mostra lista prodotti per scelta utente:
-select TipoProdotto
+select TipoProdotto, Prezzo
 from Prodotto;
 --input esempio con 'cartolina'
-select luogo 
+select luogo
 from vende v
 where TipoProdotto = '%s' and disponibilità = TRUE;
 
