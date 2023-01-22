@@ -486,12 +486,12 @@ insert into Vende(Luogo, TipoProdotto, Disponibilita) values
 
 --1. Verificare disponibilità prodotto da una certa galleria
 --mostra lista prodotti per scelta utente:
-select p.TipoProdotto, p.Prezzo
-from Prodotto p;
---query
-select v.luogo
+select TipoProdotto, Prezzo
+from Prodotto;
+--input esempio con 'cartolina'
+select luogo
 from vende v
-where v.TipoProdotto = '%s' and v.disponibilita = TRUE;
+where TipoProdotto = '%s' and disponibilità = TRUE;
 
 
 --2. Artisti che hanno creato più opere in ordine decrescente
@@ -502,13 +502,9 @@ create view nopart(luogo, autore, num) as --numero opere per autore in ciascuna 
 	group by a.autore, a.luogo
 	order by a.luogo;
 
-select n.luogo, n.autore, n.num
-from nopart n, (
-	select g.luogo as cit, max(n3.num) as mn      --estrae la galleria e il maggior numero
-	from nopart n3 join galleria g on g.luogo = n3.luogo
-	group by g.luogo
-) n2
-where n.luogo = n2.cit and n.num = n2.mn;  --associa galleria+max ad autore
+select g.luogo, max(n.num)
+from nopart n join galleria g on g.luogo = n.luogo
+group by g.luogo;
 
 
 --3. Galleria con più opere
@@ -518,16 +514,16 @@ group by g.luogo
 order by nopere desc
 limit 1;
 
---4. Galleria che spende di più nel salario dipendenti
+--4. Spesa e salario medio per galleria
 select g.Luogo, count(d.Mail) as Dipendenti, avg(d.Salario)::numeric(10,2) as Salario_medio, sum(d.Salario) as SpeseSalario
 from Dipendente d join galleria g on d.galleria = g.luogo
 group by g.luogo;
 
 
 --5. Eventi in corso (facendo inserire la data all'utente?)
-select e.Luogo, e.Nome
+select Luogo, Nome
 from Evento e
-where '%s' between e.Datainizio and e.Datafine;
+where '%s' between Datainizio and Datafine;
 
 
 --6. Galleria avente almeno tre opere di un determinato tipo
