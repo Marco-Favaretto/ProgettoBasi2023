@@ -1,14 +1,15 @@
 --drop table in caso di tabelle già esistenti
 
-drop table if exists Galleria;
-drop table if exists Sala;
+drop view if exists nopart;
 drop table if exists Opera;
 drop table if exists Artista;
-drop table if exists NegozioSouvenir;
-drop table if exists Evento;
 drop table if exists Prodotto;
+drop table if exists NegozioSouvenir;
 drop table if exists Vende;
+drop table if exists Evento;
+drop table if exists Sala;
 drop table if exists Dipendente;
+drop table if exists Galleria;
 
 --create ed alter table del database
 
@@ -65,6 +66,7 @@ create table NegozioSouvenir (
 
 create table Prodotto (
     TipoProdotto varchar(50) not null,
+    Prezzo int not null,
     primary key (TipoProdotto)
 );
 
@@ -88,7 +90,7 @@ create table Dipendente (
 );
 
 
---Insert values del datbase
+--Insert values del database
 insert into Galleria(Luogo, Nome) values
 ('Italia','ITMusesum'),
 ('Francia','FRMusesum'),
@@ -102,26 +104,26 @@ insert into Galleria(Luogo, Nome) values
 ('Brasile','BRMusesum');
 
 insert into Sala(Nome, NumeroEspositori, Luogo) values
-('Classic', 6, 'Italia'),
-('Renaissance', 3, 'Italia'),
-('Gotic', 8, 'Francia'),
-('Contemporary', 4, 'Francia'),
-('Abstract', 5, 'Germania'),
-('Digital', 2, 'Germania'),
-('Modern', 4, 'RegnoUnito'),
-('Contemporary', 5, 'RegnoUnito'),
-('Human', 7, 'USA'),
-('Digital', 5, 'USA'),
-('Modern', 7, 'Canada'),
-('Contemporary', 4, 'Canada'),
-('Abstract', 2, 'Cina'),
-('Classic', 3, 'Cina'),
-('Feudal', 3, 'Giappone'),
-('Anime', 4, 'Giappone'),
-('StreetArt', 3, 'SudAfrica'),
-('Digital', 7, 'SudAfrica'),
-('Modern', 7, 'Brasile'),
-('Contemporary', 5, 'Brasile');
+('Classic', '6', 'Italia'),
+('Renaissance', '3', 'Italia'),
+('Gotic', '8', 'Francia'),
+('Contemporary', '4', 'Francia'),
+('Abstract', '5', 'Germania'),
+('Digital', '2', 'Germania'),
+('Modern', '4', 'RegnoUnito'),
+('Contemporary', '5', 'RegnoUnito'),
+('Human', '7', 'USA'),
+('Digital', '5', 'USA'),
+('Modern', '7', 'Canada'),
+('Contemporary', '4', 'Canada'),
+('Abstract', '2', 'Cina'),
+('Classic', '3', 'Cina'),
+('Feudal', '3', 'Giappone'),
+('Anime', '4', 'Giappone'),
+('StreetArt', '3', 'SudAfrica'),
+('Digital', '7', 'SudAfrica'),
+('Modern', '7', 'Brasile'),
+('Contemporary', '5', 'Brasile');
 
 insert into Artista (NickName, DataNascita, Nome) values
 ('Shun', '1948-11-08', 'Shauna Caulliere'),
@@ -324,7 +326,7 @@ insert into Dipendente (NomeCognome, Mail, Salario, Mansione, Galleria) values
 (' RicardoDavis ',' Ricardo.Davis@gmail.com ', 1900 , 'Guardia' , 'RegnoUnito' ),
 (' SaraDowning ',' Sara.Downing@gmail.com ', 1800 , 'Guardia' , 'Giappone' ),
 (' MorrisJohnson ',' Morris.Johnson@gmail.com ', 2000 , 'Guardia' , 'Cina' ),
-(' RonnieChiapetti ',' Ronnie.Chiapetti@gmail.com ', 1800 , 'Guardia' , 'Brazile' ),
+(' RonnieChiapetti ',' Ronnie.Chiapetti@gmail.com ', 1800 , 'Guardia' , 'Brasile' ),
 (' SteveZimmerman ',' Steve.Zimmerman@gmail.com ', 2000 , 'Guardia' , 'SudAfrica' ),
 (' DamonJohns ',' Damon.Johns@gmail.com ', 2300 , 'Guardia' , 'Italia' ),
 (' HenryNichols ',' Henry.Nichols@gmail.com ', 1800 , 'Guardia' , 'Italia' ),
@@ -485,16 +487,16 @@ insert into Vende(Luogo, TipoProdotto, Disponibilita) values
 --Query
 
 --1. Verificare disponibilità prodotto da una certa galleria
+
 --mostra lista prodotti per scelta utente:
-select TipoProdotto, Prezzo
-from Prodotto;
+select p.TipoProdotto, p.Prezzo
+from Prodotto p;
 --input esempio con 'cartolina'
-select luogo
+select v.luogo
 from vende v
-where TipoProdotto = '%s' and disponibilità = TRUE;
+where v.TipoProdotto = '%s' and v.disponibilita = TRUE;
 
-
---2. Artisti che hanno creato più opere in ordine decrescente
+--2. Artisti che hanno creato più opere in ordine decrescente per galleria
 drop view if exists nopart;
 create view nopart(luogo, autore, num) as --numero opere per autore in ciascuna galleria
 	select a.luogo, a.autore, count(*) as num
@@ -502,14 +504,18 @@ create view nopart(luogo, autore, num) as --numero opere per autore in ciascuna 
 	group by a.autore, a.luogo
 	order by a.luogo;
 
-select g.luogo, max(n.num)
-from nopart n join galleria g on g.luogo = n.luogo
-group by g.luogo;
+select n.luogo, n.autore, n.num
+from nopart n, (
+	select g.luogo as cit, max(n3.num) as mn
+	from nopart n3 join galleria g on g.luogo = n3.luogo
+	group by g.luogo
+) n2
+where n.luogo = n2.cit and n.num = n2.mn;
 
 
 --3. Galleria con più opere
 select g.luogo as luogo, count(*) as nopere
-from opere o join galleria g on g.luogo = o.luogo
+from opera o join galleria g on g.luogo = o.luogo
 group by g.luogo
 order by nopere desc
 limit 1;
@@ -519,12 +525,10 @@ select g.Luogo, count(d.Mail) as Dipendenti, avg(d.Salario)::numeric(10,2) as Sa
 from Dipendente d join galleria g on d.galleria = g.luogo
 group by g.luogo;
 
-
---5. Eventi in corso (facendo inserire la data all'utente?)
-select Luogo, Nome
+--5. Eventi in corso
+select e.Luogo, e.Nome
 from Evento e
-where '%s' between Datainizio and Datafine;
-
+where '%s' between e.Datainizio and e.Datafine;
 
 --6. Galleria avente almeno tre opere di un determinato tipo
 select g.Luogo, o.tipo, count(*) num 
