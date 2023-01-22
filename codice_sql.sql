@@ -171,100 +171,111 @@ insert into Artista (NickName, DataNascita, Nome) values
 ('Yelena', '1806-07-16', 'YelenaRudolf');
 
 insert into Opera(ID, Titolo, Descrizione, Tipo, Luogo, Nome, Autore) values
-('01','Il giocatore','','Sculpture','Italia','Classic','Cara'),
-('02','Giostra','','Architecture','Italia','Classic','Cara'),
-('03','Pensiero','','Sculpture','Italia','Classic','Tami'),
-('04','Movimento','','Sculpture','Italia','Classic','Tami'),
-('05','Porticato','','Architecture','Italia','Classic','Noella'),
-('06','Fontana','','Architecture','Italia','Classic','Noella'),
-('07','Le 3 dame','Tre donne che si muovono sinuose','Painting','Italia','Renaissance','Yelena'),
-('08','Le 4 dame','Quattro donzelle che ballano','Painting','Italia','Renaissance','Yelena'),
-('09','Le 5 dame','Cinque dame che pensano','Painting','Italia','Renaissance','Yelena'),
-('10','Notre Dame de Lyon','','Architecture','Francia','Gotic','Audrey'),
-('11','Notre Dame de Paris','','Architecture','Francia','Gotic','Audrey'),
-('12','Sacre Coeur','','Architecture','Francia','Gotic','Cherise'),
-('13','Saint Bartolomie','','Architecture','Francia','Gotic','Cherise'),
-('14','Fourier','','Architecture','Francia','Gotic','Audrey'),
-('15','Fayettes','','Architecture','Francia','Gotic','Cherise'),
-('16','Epicerie','','Architecture','Francia','Gotic','Nichole'),
-('17','Ecrir','','Architecture','Francia','Gotic','Nichole'),
-('18','Finding Paradise','','Painting','Francia','Contemporary','Zollie'),
-('19','Within Painting',"A large whimsical vision of Spring celebrating it's return.",'Painting','Francia','Contemporary','Zollie'),
-('20','Beach Stones','Watercolor stones painting in shade of blue, indigo, teal, and grey.','','Francia','Contemporary','Zollie'),
-('21','Letting Go','The times I have felt the most peaceful are in lakes, floating on my back with my face to the sun and the silence of water in my ears.','Painting','Francia','Contemporary','Marsh'),
-('22','Twei','Heute möchte ich von meinem besten Freund erzählen. Zunächst zu seinem Äußeren.','Painting','Germania','Abstract','Ryann'),
-('23','Zund','Er ist sehr groß und ragt mit seinen 1,94 Meter Körpergröße aus fast jeder Menschengruppe heraus.','Painting','Germania','Abstract','Ryann'),
-('24','Wander','Seine Arme und Beine sind zwar lang, aber kräftig, da er sehr gerne Sport treibt.','Painting','Germania','Abstract','FraZ'),
-('25','Krunken','Mein Freund ist Basketballer.','Painting','Germania','Abstract','FraZ'),
-('26','Apoteque','','Painting','Germania','Abstract','FraZ'),
-('27','Life','','Print','Germania','Digital','Shirline'),
-('28','idfc','','Print','Germania','Digital','Shirline'),
-('29','lol','','Painting','RegnoUnito','Modern','Ryann'),
-('30','YOLO','you obly live once','Painting','RegnoUnito','Modern','Ryann'),
-('31','God save the queen','Please, we are begging','Painting','RegnoUnito','Modern','Aymer'),
-('32','rofl','','Sculpture','RegnoUnito','Contemporary','Huntlee'),
-('33','B E A U T Y',':O','Sculpture','RegnoUnito','Contemporary','Huntlee'),
-('34','Boom','','Painting','RegnoUnito','Contemporary','Huntlee'),
-('35','Basmati','','Painting','RegnoUnito','Contemporary','Huntlee'),
-('36','Nature','The beauty of nature passing through me.','Performance','USA','Human','Huntlee'),
-('37','Fight','','Performance','USA','Human','Sadye'),
-('38','War','','Performance','USA','Human','Sadye'),
-('39','Hope','first','Performance','USA','Human','Sadye'),
-('40','Less','second','Performance','USA','Human','Sadye'),
-('41','Rage','','Performance','USA','Human','Sadye'),
-('42','Scream','','Performance','USA','Human','Sadye'),
-('43','Group','These groupings are defined by the perception that the artworks within them share a single quality.','NFT','USA','Digital','Cherise'),
-('44','Be free','Afternoon Aspen Grove','Image','USA','Digital','Cherise'),
-('45','bff','','Print','USA','Digital','Shirline'),
-('46','gf or bf','','Print','USA','Digital','Shirline'),
-('47','Rare','Still young','Painting','Canada','Modern','Aggi'),
-('48','Steak','Good in every occasion','Painting','Canada','Modern','Aggi'),
-('49','Medium','Walking at your pace','Painting','Canada','Modern','Aggi'),
-('50','Jogging','','Sculpture','Canada','Modern','Nikki'),
-('51','Jumper','','Sculpture','Canada','Modern','Nikki'),
-('52','Winston','','Sculpture','Canada','Contemporary','Berti'),
-('53','Cave','','Architecture','Canada','Contemporary','Berti'),
-('54','SkyLiner','','Architecture','Canada','Contemporary','Berti'),
-('55','Warrior','Is he fighting or crying?','Painting','Cina','Abstract','Aggi'),
-('56','Pagoda','','Sculpture','Cina','Classic','Wren'),
-('57','Buddah','','Sculpture','Cina','Classic','Wren'),
-('58','Samurai','Loyality and Honor','Painting','Giappone','Feudal','Falkner'),
-('59','Waiting','','Painting','Giappone','Feudal','Falkner'),
-('60','AOD','','Animation','Giappone','Anime','Verine'),
-('61','SSO','','Animation','Giappone','Anime','Lilian'),
-('62','MMO','','Animation','Giappone','Anime','Verine'),
-('63','FER','','Animation','Giappone','Anime','Bayard'),
-('64','Crazy','','Murales','SudAfrica','StreetArt','Suellen'),
-('65','Happy','','Murales','SudAfrica','StreetArt','Suellen'),
-('66','Melody','Feel the rithm in music','Murales','SudAfrica','StreetArt','Judon'),
-('67','Rampa','','Print','SudAfrica','Digital','Wynnie'),
-('68','CreationVSCreator1','','Animation','SudAfrica','Digital','Charles'),
-('69','CreationVSCreator2','','Animation','SudAfrica','Digital','Charles'),
-('70','CreationVSCreator3','','Animation','SudAfrica','Digital','Charles'),
-('71','Lukas','','Print','SudAfrica','Digital','Wynnie'),
-('72','Wine','','Sculpture','Brasile','Modern','Verge'),
-('73','Bread','','Sculpture','Brasile','Modern','Verge'),
-('74','Fish','','Sculpture','Brasile','Modern','Verge'),
-('75','Hola','','Painting','Brasile','Contemporary','Sumner'),
-('76','Amigos','','Painting','Brasile','Contemporary','Barr'),
-('77','Mira','','Painting','Brasile','Contemporary','Sadye');
+(01,'Il giocatore','','Sculpture','Italia','Classic','Cara'),
+(02,'Giostra','','Architecture','Italia','Classic','Cara'),
+(03,'Pensiero','','Sculpture','Italia','Classic','Tami'),
+(04,'Movimento','','Sculpture','Italia','Classic','Tami'),
+(05,'Porticato','','Architecture','Italia','Classic','Noella'),
+(06,'Fontana','','Architecture','Italia','Classic','Noella'),
+(07,'Le 3 dame','Tre donne che si muovono sinuose','Painting','Italia','Renaissance','Yelena'),
+(08,'Le 4 dame','Quattro donzelle che ballano','Painting','Italia','Renaissance','Yelena'),
+(09,'Le 5 dame','Cinque dame che pensano','Painting','Italia','Renaissance','Yelena'),
+(10,'Notre Dame de Lyon','','Architecture','Francia','Gotic','Audrey'),
+(11,'Notre Dame de Paris','','Architecture','Francia','Gotic','Audrey'),
+(12,'Sacre Coeur','','Architecture','Francia','Gotic','Cherise'),
+(13,'Saint Bartolomie','','Architecture','Francia','Gotic','Cherise'),
+(14,'Fourier','','Architecture','Francia','Gotic','Audrey'),
+(15,'Fayettes','','Architecture','Francia','Gotic','Cherise'),
+(16,'Epicerie','','Architecture','Francia','Gotic','Nichole'),
+(17,'Ecrir','','Architecture','Francia','Gotic','Nichole'),
+(18,'Finding Paradise','','Painting','Francia','Contemporary','Zollie'),
+(19,'Within Painting',"A large whimsical vision of Spring celebrating its return.",'Painting','Francia','Contemporary','Zollie'),
+(20,'Beach Stones','Watercolor stones painting in shade of blue, indigo, teal, and grey.','','Francia','Contemporary','Zollie'),
+(21,'Letting Go','The times I have felt the most peaceful are in lakes, floating on my back with my face to the sun and the silence of water in my ears.','Painting','Francia','Contemporary','Marsh'),
+(22,'Twei','Heute möchte ich von meinem besten Freund erzählen. Zunächst zu seinem Äußeren.','Painting','Germania','Abstract','Ryann'),
+(23,'Zund','Er ist sehr groß und ragt mit seinen 1,94 Meter Körpergröße aus fast jeder Menschengruppe heraus.','Painting','Germania','Abstract','Ryann'),
+(24,'Wander','Seine Arme und Beine sind zwar lang, aber kräftig, da er sehr gerne Sport treibt.','Painting','Germania','Abstract','FraZ'),
+(25,'Krunken','Mein Freund ist Basketballer.','Painting','Germania','Abstract','FraZ'),
+(26,'Apoteque','','Painting','Germania','Abstract','FraZ'),
+(27,'Life','','Print','Germania','Digital','Shirline'),
+(28,'idfc','','Print','Germania','Digital','Shirline'),
+(29,'lol','','Painting','RegnoUnito','Modern','Ryann'),
+(30,'YOLO','you obly live once','Painting','RegnoUnito','Modern','Ryann'),
+(31,'God save the queen','Please, we are begging','Painting','RegnoUnito','Modern','Aymer'),
+(32,'rofl','','Sculpture','RegnoUnito','Contemporary','Huntlee'),
+(33,'B E A U T Y',':O','Sculpture','RegnoUnito','Contemporary','Huntlee'),
+(34,'Boom','','Painting','RegnoUnito','Contemporary','Huntlee'),
+(35,'Basmati','','Painting','RegnoUnito','Contemporary','Huntlee'),
+(36,'Nature','The beauty of nature passing through me.','Performance','USA','Human','Huntlee'),
+(37,'Fight','','Performance','USA','Human','Sadye'),
+(38,'War','','Performance','USA','Human','Sadye'),
+(39,'Hope','first','Performance','USA','Human','Sadye'),
+(40,'Less','second','Performance','USA','Human','Sadye'),
+(41,'Rage','','Performance','USA','Human','Sadye'),
+(42,'Scream','','Performance','USA','Human','Sadye'),
+(43,'Group','These groupings are defined by the perception that the artworks within them share a single quality.','NFT','USA','Digital','Cherise'),
+(44,'Be free','Afternoon Aspen Grove','Image','USA','Digital','Cherise'),
+(45,'bff','','Print','USA','Digital','Shirline'),
+(46,'gf or bf','','Print','USA','Digital','Shirline'),
+(47,'Rare','Still young','Painting','Canada','Modern','Aggi'),
+(48,'Steak','Good in every occasion','Painting','Canada','Modern','Aggi'),
+(49,'Medium','Walking at your pace','Painting','Canada','Modern','Aggi'),
+(50,'Jogging','','Sculpture','Canada','Modern','Nikki'),
+(51,'Jumper','','Sculpture','Canada','Modern','Nikki'),
+(52,'Winston','','Sculpture','Canada','Contemporary','Berti'),
+(53,'Cave','','Architecture','Canada','Contemporary','Berti'),
+(54,'SkyLiner','','Architecture','Canada','Contemporary','Berti'),
+(55,'Warrior','Is he fighting or crying?','Painting','Cina','Abstract','Aggi'),
+(56,'Pagoda','','Sculpture','Cina','Classic','Wren'),
+(57,'Buddah','','Sculpture','Cina','Classic','Wren'),
+(58,'Samurai','Loyality and Honor','Painting','Giappone','Feudal','Falkner'),
+(59,'Waiting','','Painting','Giappone','Feudal','Falkner'),
+(60,'AOD','','Animation','Giappone','Anime','Verine'),
+(61,'SSO','','Animation','Giappone','Anime','Lilian'),
+(62,'MMO','','Animation','Giappone','Anime','Verine'),
+(63,'FER','','Animation','Giappone','Anime','Bayard'),
+(64,'Crazy','','Murales','SudAfrica','StreetArt','Suellen'),
+(65,'Happy','','Murales','SudAfrica','StreetArt','Suellen'),
+(66,'Melody','Feel the rithm in music','Murales','SudAfrica','StreetArt','Judon'),
+(67,'Rampa','','Print','SudAfrica','Digital','Wynnie'),
+(68,'CreationVSCreator1','','Animation','SudAfrica','Digital','Charles'),
+(69,'CreationVSCreator2','','Animation','SudAfrica','Digital','Charles'),
+(70,'CreationVSCreator3','','Animation','SudAfrica','Digital','Charles'),
+(71,'Lukas','','Print','SudAfrica','Digital','Wynnie'),
+(72,'Wine','','Sculpture','Brasile','Modern','Verge'),
+(73,'Bread','','Sculpture','Brasile','Modern','Verge'),
+(74,'Fish','','Sculpture','Brasile','Modern','Verge'),
+(75,'Hola','','Painting','Brasile','Contemporary','Sumner'),
+(76,'Amigos','','Painting','Brasile','Contemporary','Barr'),
+(77,'Mira','','Painting','Brasile','Contemporary','Sadye');
 
 insert into Evento (ID, Nome, DataInizio, DataFine, Luogo) values
-('01','Free Guides','2020-08-13','2020-08-20','Italia'),
-('02','Meet the artist','2021-01-10','2021-01-15','Italia'),
-('03','Interactive Learning','2022-10-01','2022-12-30','Italia'),
-('04','Sales on souvenir','2021-04-16','2021-05-16','Francia'),
-('05','Charity','2022-05-01','2022-05-31','Francia'),
-('06','Free Guides','','','Germania'),
-('06','','','','Germania'),
-('06','','','','Germania'),
-('04','RegnoUnito'),
-('05','USA'),
-('06','Canada'),
-('07','Cina'),
-('08','Giappone'),
-('09','SudAfrica'),
-('10','Brasile');
+insert into Evento (ID, Nome, DataInizio, DataFine, Luogo) values
+(01,'Free Guides','2020-08-13','2020-08-20','Italia'),
+(02,'Meet the artist','2021-01-10','2021-01-15','Italia'),
+(03,'Interactive Learning','2022-10-01','2022-12-30','Italia'),
+(04,'Sales on souvenir','2021-04-16','2021-05-16','Francia'),
+(05,'Charity','2022-05-01','2022-05-31','Francia'),
+(06,'Free Guides','2018-02-26','2018-03-15','Germania'),
+(07,'All night','2015-11-23','2015-11-24','Germania'),
+(08,'Charity','2019-12-25','2019-12-31','Germania'),
+(09,'Sales on souvenir','2014-07-12','2014-07-18','RegnoUnito'),
+(10,'Charity','2021-09-07','2021-09-27','RegnoUnito'),
+(11,'Free Guides','2023-01-01','2023-01-07','USA'),
+(12,'Sales on souvenir','2015-05-18','2015-05-28','USA'),
+(13,'Charity','2022-12-06','2022-12-08','USA'),
+(14,'Sales on souvenir','2020-08-13','2020-08-20','Canada'),
+(15,'Free Guides','2021-09-07','2021-09-27','Canada'),
+(16,'Meet the artist','2021-01-04','2021-01-08','Cina'),
+(17,'Interactive Learning','2020-10-07','2020-10-14','Cina'),
+(18,'Free Guides','2019-12-25','2019-12-31','Giappone'),
+(19,'Charity','2018-02-04','2018-02-05','Giappone'),
+(20,'Meet the artist','2014-11-18','2014-11-24','Giappone'),
+(21,'Sales on souvenir','2022-10-01','2022-12-30','SudAfrica'),
+(22,'All night','2015-03-13','2015-03-23','SudAfrica'),
+(23,'Meet the artist','2013-06-14','2013-06-18','SudAfrica'),
+(24,'Free Guides','2020-11-19','2020-11-29','Brasile'),
+(25,'Charity','2016-05-08','2016-05-15','Brasile');
 
 
 insert into Dipendente (NomeCognome, Mail, Salario, Mansione, Galleria) values
@@ -335,15 +346,149 @@ insert into NegozioSouvenir(Luogo, Orario) values
 ('SudAfrica','Continuato'),
 ('Brasile','Continuato');
 
+insert into Prodotto(TipoProdotto, Prezzo) values
+("Statuetta", 10),
+("Cartolina", 2),
+("Quadretto", 15),
+("Tazza", 12),
+("Penna", 5),
+("Agenda", 7),
+("Borsa", 40),
+("CoverCellulare", 5),
+("Libro", 12),
+("Poster", 10),
+("Quadro", 20),
+("RiproduzioneArchitettonica", 20);
+
+insert into Vende(Luogo, TipoProdotto, Disponibilita) values
+("Italia", "Statuetta", TRUE),
+("Italia", "Cartolina", TRUE),
+("Italia", "Quadretto", FALSE),
+("Italia", "Tazza", FALSE),
+("Italia", "Penna", TRUE),
+("Italia", "Agenda", FALSE),
+("Italia", "Borsa", FALSE),
+("Italia", "CoverCellulare", TRUE),
+("Italia", "Libro", TRUE),
+("Italia", "Poster", TRUE),
+("Italia", "Quadro", FALSE),
+("Italia", "RiproduzioneArchitettonica", FALSE),
+("Francia", "Statuetta", FALSE),
+("Francia", "Cartolina", FALSE),
+("Francia", "Quadretto", TRUE),
+("Francia", "Tazza", TRUE),
+("Francia", "Penna", FALSE),
+("Francia", "Agenda", FALSE),
+("Francia", "Borsa", TRUE),
+("Francia", "CoverCellulare", TRUE),
+("Francia", "Libro", FALSE),
+("Francia", "Poster", TRUE),
+("Francia", "Quadro", TRUE),
+("Francia", "RiproduzioneArchitettonica", FALSE),
+("Germania", "Statuetta", TRUE),
+("Germania", "Cartolina", FALSE),
+("Germania", "Quadretto", FALSE),
+("Germania", "Tazza", TRUE),
+("Germania", "Penna", TRUE),
+("Germania", "Agenda", FALSE),
+("Germania", "Borsa", TRUE),
+("Germania", "CoverCellulare", TRUE),
+("Germania", "Libro", FALSE),
+("Germania", "Poster", FALSE),
+("Germania", "Quadro", TRUE),
+("Germania", "RiproduzioneArchitettonica", FALSE),
+("USA", "Statuetta", FALSE),
+("USA", "Cartolina", TRUE),
+("USA", "Quadretto", FALSE),
+("USA", "Tazza", TRUE),
+("USA", "Penna", TRUE),
+("USA", "Agenda", TRUE),
+("USA", "Borsa", FALSE),
+("USA", "CoverCellulare", TRUE),
+("USA", "Libro", TRUE),
+("USA", "Poster", FALSE),
+("USA", "Quadro", FALSE),
+("USA", "RiproduzioneArchitettonica", TRUE),
+("Canada", "Statuetta", TRUE),
+("Canada", "Cartolina", TRUE),
+("Canada", "Quadretto", TRUE),
+("Canada", "Tazza", FALSE),
+("Canada", "Penna", FALSE),
+("Canada", "Agenda", FALSE),
+("Canada", "Borsa", TRUE),
+("Canada", "CoverCellulare", FALSE),
+("Canada", "Libro", TRUE),
+("Canada", "Poster", FALSE),
+("Canada", "Quadro", TRUE),
+("Canada", "RiproduzioneArchitettonica", TRUE),
+("RegnoUnito", "Statuetta", FALSE),
+("RegnoUnito", "Cartolina", FALSE),
+("RegnoUnito", "Quadretto", FALSE),
+("RegnoUnito", "Tazza", TRUE),
+("RegnoUnito", "Penna", TRUE),
+("RegnoUnito", "Agenda", FALSE),
+("RegnoUnito", "Borsa", TRUE),
+("RegnoUnito", "CoverCellulare", TRUE),
+("RegnoUnito", "Libro", TRUE),
+("RegnoUnito", "Poster", TRUE),
+("RegnoUnito", "Quadro", TRUE),
+("RegnoUnito", "RiproduzioneArchitettonica", FALSE),
+("SudAfrica", "Statuetta", TRUE),
+("SudAfrica", "Cartolina", TRUE),
+("SudAfrica", "Quadretto", FALSE),
+("SudAfrica", "Tazza", FALSE),
+("SudAfrica", "Penna", TRUE),
+("SudAfrica", "Agenda", TRUE),
+("SudAfrica", "Borsa", FALSE),
+("SudAfrica", "CoverCellulare", FALSE),
+("SudAfrica", "Libro", TRUE),
+("SudAfrica", "Poster", FALSE),
+("SudAfrica", "Quadro", FALSE),
+("SudAfrica", "RiproduzioneArchitettonica", FALSE),
+("Brazile", "Statuetta", TRUE),
+("Brazile", "Cartolina", TRUE),
+("Brazile", "Quadretto", FALSE),
+("Brazile", "Tazza", TRUE),
+("Brazile", "Penna", FALSE),
+("Brazile", "Agenda", TRUE),
+("Brazile", "Borsa", TRUE),
+("Brazile", "CoverCellulare", TRUE),
+("Brazile", "Libro", FALSE),
+("Brazile", "Poster", FALSE),
+("Brazile", "Quadro", FALSE),
+("Brazile", "RiproduzioneArchitettonica", FALSE),
+("Cina", "Statuetta", TRUE),
+("Cina", "Cartolina", TRUE),
+("Cina", "Quadretto", TRUE),
+("Cina", "Tazza", FALSE),
+("Cina", "Penna", FALSE),
+("Cina", "Agenda", FALSE),
+("Cina", "Borsa", TRUE),
+("Cina", "CoverCellulare", FALSE),
+("Cina", "Libro", TRUE),
+("Cina", "Poster", TRUE),
+("Cina", "Quadro", FALSE),
+("Cina", "RiproduzioneArchitettonica", TRUE),
+("Giappone", "Statuetta", TRUE),
+("Giappone", "Cartolina", TRUE),
+("Giappone", "Quadretto", FALSE),
+("Giappone", "Tazza", FALSE),
+("Giappone", "Penna", FALSE),
+("Giappone", "Agenda", FALSE),
+("Giappone", "Borsa", TRUE),
+("Giappone", "CoverCellulare", TRUE),
+("Giappone", "Libro", TRUE),
+("Giappone", "Poster", TRUE),
+("Giappone", "Quadro", FALSE),
+("Giappone", "RiproduzioneArchitettonica", FALSE);
+
 
 --Query
 
 --1. Verificare disponibilità prodotto da una certa galleria
-
 --mostra lista prodotti per scelta utente:
 select TipoProdotto
 from Prodotto;
---spostare disponibilità in vende?
 --input esempio con "cartolina"
 select luogo 
 from vende v
@@ -351,29 +496,19 @@ where TipoProdotto = '%s' and disponibilità = 't'
 
 
 --2. Artisti che hanno creato più opere in ordine decrescente
-drop view if exists nopere;
-create view nopere(autore, num) as  --numero opere per autore
-    select art.NickName, count(*)
-    from artista art join opera op on art.NickName = op.Autore
-    group by art.NickName
-    order by num desc;
-select mn.citta as citta, mn.aut as aurore 
-from nopere n join (
-    select g.luogo as Citta, o.autore aut
-    from galleria g join opera o on g.Luogo = o.Luogo
-    group by aut;
-) mn on n.autore = mn.aut
-group by citta;
+drop view if exists nopart;
+create view nopart(luogo, autore, num) as --numero opere per autore in ciascuna galleria
+	select a.luogo, a.autore, count(*) as num
+	from opera a
+	group by a.autore, a.luogo
+	order by a.luogo;
+
+select g.luogo, max(n.num)
+from nopart n join galleria g on g.luogo = n.luogo
+group by g.luogo;
 
 
 --3. Galleria con più opere
-select gal.luogo, max(nopere) as num_opere
-from galleria gal join (
-select g.luogo as luogo, count(*) as nopere
-from opere o join galleria g on g.luogo = o.luogo
-group by g.luogo;
-) g1 on gal.luogo = g.luogo;
---stessa query, ma altro modo, penso
 select g.luogo as luogo, count(*) as nopere
 from opere o join galleria g on g.luogo = o.luogo
 group by g.luogo
@@ -381,11 +516,7 @@ order by nopere desc
 limit 1;
 
 --4. Galleria che spende di più nel salario dipendenti
-select g.Luogo, count(d.Mail) as Dipendenti, sum(d.Salario) as SpeseSalario
-from Dipendente d join galleria g on d.galleria = g.luogo
-group by g.luogo;
---4.5 Salario medio per galleria
-select g.Luogo, count(d.Mail) as nDipendenti, avg(d.Salario) as Salario_medio 
+select g.Luogo, count(d.Mail) as Dipendenti, avg(d.Salario)::numeric(10,2) as Salario_medio, sum(d.Salario) as SpeseSalario
 from Dipendente d join galleria g on d.galleria = g.luogo
 group by g.luogo;
 
@@ -393,18 +524,15 @@ group by g.luogo;
 --5. Eventi in corso (facendo inserire la data all'utente?)
 select Luogo, Nome
 from Evento e
-where '%s' between Data_inizio and Data_fine;
+where '%s' between Datainizio and Datafine;
 
 
 --6. Galleria avente almeno tre opere di un determinato tipo
-select o.Luogo, o.tipo, count(*) num 
-from opera o
-group by o.tipo
-having num > 3;
-
-
---possibile altra query: disponibilità gallerie?
+select g.Luogo, o.tipo, count(*) num 
+from opera o join galleria g on g.luogo = o.luogo
+group by g.luogo, o.tipo
+having count(*) > 3;
 
 --Indici
 
-create index '#' on '#';
+create index art_location on opera(Titolo, Luogo);
