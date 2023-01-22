@@ -14,7 +14,7 @@ using std::endl;
 #define PG_PORT 5432
 #define PG_USER "postgres"
 #define PG_HOST "127.0.0.1"
-#define PG_DB ""
+#define PG_DB "b4si"
 
 //chiede di ripetere eventuale ciclo di funzioni con relativo controllo sull'input
 int ripeti();
@@ -122,6 +122,7 @@ int main() {
                         break;
                     case 2:
                         sprintf(q2_tmp, query[1]);
+                        exeQ(conn, querytmp);
                         break;
                     case 3:
                         sprintf(querytmp, query[2]);
@@ -132,6 +133,9 @@ int main() {
                         exeQ(conn, querytmp);
                         break;
                     case 5:
+                        //inserimento data:
+                        char* data[3];
+                        //
                         sprintf(querytmp, query[4]);
                         exeQ(conn, querytmp);
                         break;
@@ -142,7 +146,7 @@ int main() {
                     default:
                         break;
                 }
-                cout << "Visualizzare una nuova query [y or n]: ";    //ripetere l'esecuzione del programma
+                cout << "Visualizzare una nuova query? [y or n]: ";    //ripetere l'esecuzione del programma
                 prog_r = ripeti();
             }
         } while(prog_r);
@@ -170,7 +174,7 @@ void menu(int *menu_v) {
             cout << "\t2. Visualizzare gli artisti che hanno creato più opere per galleria\n";
             cout << "\t3. Galleria con maggior numero di opere\n";
             cout << "\t4. Salario medio e spesa complessiva per galleria\n";
-            cout << "\t5. Inserendo una data, visualizzare quali eventi sono in corso\n";
+            cout << "\t5. Inserendo una data, vengono visualizzati gli eventi sono in corso\n";
             cout << "\t6. Galleria avente almeno 3 opere dello stesso tipo\n";
         cout << "\tPremere 0 per chiudere il programma." << endl;
         cout << "Inserire un numero compreso tra 0 e 6: ";
@@ -250,7 +254,7 @@ int exeQ(PGconn* tmpconn, char* tmp_query) {
         cout << endl;
     }
     print_ln(len, fields);
-    
+
     PQclear(res); //chiusura dell'esecuzione della query
     return tuple; //return per verificare che ci sia stato output
 }
